@@ -1,9 +1,16 @@
 <h1>Your Text Analysis</h1>
 
-<h2>Number of Words: </h2>
+<h2>Number of Words: <%= @analyzed_text.count_of_words %></h2>
 
-<h2>Vowels: </h2>
+<h2>Vowels: <%= @analyzed_text.count_of_vowels %></h2>
 
-<h2>Consonants: </h2>
+<h2>Consonants: <%= @analyzed_text.count_of_consonants %></h2>
+<% biggest = @analyzed_text.most_used_letter %>
+<% big_key = nil %>
+<% big_value = nil %>
+<% biggest.each do |k, v|
+    big_key = k.upcase
+    big_value = v.to_s 
+    end %>
 
-<h2>Most Common Letter: _____ used _____ times</h2>
+<h2>Most Common Letter: <%= big_key %>, used <%= big_value %> times</h2>
